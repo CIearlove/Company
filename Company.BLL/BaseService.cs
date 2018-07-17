@@ -14,6 +14,7 @@ namespace Company.BLL
         {
             SetDal();
         }
+
         public IBaseDAL<T> Dal { get; set; }
         //当BaseService创建实例的时候会执行这个抽象方法,然后执行子类重写它的方法 为IBaseDAL属性赋一个具体的IDAL实例对象.
         public abstract void SetDal();
