@@ -55,6 +55,7 @@ namespace Company.UI.Controllers
             var json = new
             {
                 total = pager.totalRows,
+                /*
                 rows = (from r in list
                         select new Staff()
                         {
@@ -64,6 +65,16 @@ namespace Company.UI.Controllers
                             Sex = r.Sex,
                             CreateTime = r.CreateTime,
                         }).ToArray()
+                        */
+
+                rows = list.Select(staff => new
+                {
+                    Id = staff.Id,
+                    Name = staff.Name,
+                    Age = staff.Age,
+                    Sex = staff.Sex,
+                    CreateTime = staff.CreateTime
+                }).ToArray()
             };
 
             return Json(json, JsonRequestBehavior.AllowGet);
