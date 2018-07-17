@@ -9,6 +9,7 @@ namespace Company.IBLL
 {
     public  interface IBaseService<T> where T : class, new()
     {
+
         bool Add(T t);
         bool Delete(T t);
         bool Update(T t);
