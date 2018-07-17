@@ -18,7 +18,6 @@ namespace Company.BLL
             Dal = StaffDAL;
         }
 
-
     }
 }
 
