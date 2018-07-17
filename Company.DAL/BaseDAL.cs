@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Company.DAL
+{
+    public  class BaseDAL<T> where T:class,new()
+    {
+        private DbContext dbContext = DbContextFactory.Create();
+        public void Add(T t) {
+            dbContext.Set<T>().Add(t);
+        }
+        public void Delete(T t) {
+            dbContext.Set<T>().Remove(t);
+        }
+        public void Update(T t) {
+            dbContext.Set<T>().AddOrUpdate(t);
+        }
+
+        public IQueryable<T> GetModels(Expression<Func<T, bool>> whereLambda) {
+            return dbContext.Set<T>().Where(whereLambda);
+        }
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <typeparam name="type"></typeparam>
+        /// <param name="pageSize">每页展示的条数</param>
+        /// <param name="pageIndex">第几页</param>
+        /// <param name="isAsc">是否升序</param>
+        /// <param name="OrderByLambda">根据某一字段排序</param>
+        /// <param name="WhereLambda">条件</param>
+        /// <returns></returns>
+        public IQueryable<T> GetModelsByPage<type>(int pageSize, int pageIndex, bool isAsc, Expression<Func<T, type>> OrderByLambda, Expression<Func<T, bool>> WhereLambda) {
+            //是否升序
+            if (isAsc)
+            {
+                return dbContext.Set<T>().Where(WhereLambda).OrderBy(OrderByLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            }
+            else
+            {
+                return dbContext.Set<T>().Where(WhereLambda).OrderByDescending(OrderByLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            }
+        }
+
+        public bool SaveChanges() {
+            return dbContext.SaveChanges() > 0;
+        }
+    }
+}
