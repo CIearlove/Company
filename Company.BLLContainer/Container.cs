@@ -37,7 +37,6 @@ namespace Company.BLLContainer
 
             return container.Resolve<T>();
         }
-
         /// <summary>
         /// 初始化
         /// </summary>
