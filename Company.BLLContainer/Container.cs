@@ -34,7 +34,6 @@ namespace Company.BLLContainer
             {
                 throw new System.Exception("IOC实例化出错!" + ex.Message);
             }
-
             return container.Resolve<T>();
         }
         /// <summary>
