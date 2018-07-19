@@ -194,6 +194,7 @@
                     type: 'datetimebox',
                     options: {
                         required: true,
+                        panelHeight:250
                     },
                 }
             },
@@ -237,6 +238,7 @@
                 url: url,
                 //发送出去的数据
                 data: {
+                    Id: change[0].Id,
                     Name: change[0].Name,
                     Age: change[0].Age,
                     Sex: change[0].Sex,

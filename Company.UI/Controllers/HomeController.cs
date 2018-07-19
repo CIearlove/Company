@@ -109,7 +109,17 @@ namespace Company.UI.Controllers
         #endregion
 
         #region 修改   
-
+        public JsonResult Update(Staff staff)
+        {
+            if (StaffService.Update(staff))
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
         #endregion
     }
 }
