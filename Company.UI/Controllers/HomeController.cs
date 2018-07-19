@@ -19,7 +19,7 @@ namespace Company.UI.Controllers
         {
             return View();
         }
-        #region 列表
+        #region 列表（初始化+查询）
         [HttpPost]
         public JsonResult GetList(GridPager pager, StaffSearch staffSearch)
         {
@@ -92,6 +92,24 @@ namespace Company.UI.Controllers
             };
             return Json(json, JsonRequestBehavior.AllowGet);
         }
+        #endregion
+
+        #region 新增
+        public JsonResult Add(Staff staff)
+        {
+            if (StaffService.Add(staff))
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
+
+        #region 修改   
+
         #endregion
     }
 }

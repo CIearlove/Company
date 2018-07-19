@@ -166,7 +166,21 @@
                 editor: {
                     type: 'combobox',
                     options: {
-                        required: false,
+                        valueField: 'sexValue',
+                        textField:'sex',
+                        required: true,
+                        panelHeight: 60,
+                        editable: false,
+                        data: [
+                            {
+                                "sexValue": "男",
+                                "sex":"男"
+                            },
+                            {
+                                "sexValue": "女",
+                                "sex": "女"
+                            }
+                        ]
                     },
                 }
             },
@@ -196,7 +210,62 @@
             $('#save,#redo').hide();
             //没有正在编辑的行
             obj.editRow = undefined;
-            console.log(rowData);
+
+            //返回被改变的所有行的数组
+            //新增行
+            var inserted = $('#tab1').datagrid('getChanges', 'inserted');
+            //更新行
+            var updated = $('#tab1').datagrid('getChanges', 'updated');
+            var url = '';
+            var change = '';
+            //新增用户
+            if (inserted.length > 0) {
+                url = '/Home/Add';
+                change = inserted;
+                info = '条记录被新增!';
+            }
+            //修改用户
+            if (updated.length > 0) {
+                url = '/Home/Update';
+                change = updated;
+                info = '条记录被修改!'
+            }
+
+            $.ajax({
+                type: 'POST',
+                //服务器程序地址
+                url: url,
+                //发送出去的数据
+                data: {
+                    Name: change[0].Name,
+                    Age: change[0].Age,
+                    Sex: change[0].Sex,
+                    CreateTime: change[0].CreateTime
+                },
+                beforeSend: function () {
+                    //显示载入状态
+                    $('#box').datagrid('loading');
+                },
+                //服务器端返回的数据在data中
+                success: function (data) {
+                    if (data) {
+                        //隐藏载入状态
+                        $('#box').datagrid('loaded');
+                        //加载和显示第一页的所有行，即刷新当前页。
+                        $('#box').datagrid('load');
+                        //取消所有当前页中的所有行。
+                        $('#box').datagrid('unselectAll');
+                        //提示框
+                        $.messager.show({
+                            title: '提示',
+                            msg: data + info,
+                        });
+                        obj.editRow = undefined;
+                    } else {
+
+                    };
+                },
+            });
         }
     });
 });
