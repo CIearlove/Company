@@ -9,6 +9,8 @@ namespace Company.IDAL
 {
     public interface IStaffDAL:IBaseDAL<Staff>
     {
-
+        //批量删除，并返回删除的个数
+        int DeleteRange(IEnumerable<Staff> t);
+        
     }
 }

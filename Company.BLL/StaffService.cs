@@ -13,9 +13,15 @@ namespace Company.BLL
     public  class StaffService : BaseService<Staff>, IStaffService
     {
         private IStaffDAL StaffDAL = Container.Resolve<IStaffDAL>();
+
         public override void SetDal()
         {
             Dal = StaffDAL;
+        }
+  
+        public int DeleteRange(IEnumerable<Staff> t)
+        {
+            return StaffDAL.DeleteRange(t);
         }
 
     }

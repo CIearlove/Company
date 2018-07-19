@@ -9,6 +9,6 @@ namespace Company.IBLL
 {
     public interface IStaffService : IBaseService<Staff>
     {
-
+        int DeleteRange(IEnumerable<Staff> t);
     }
 }

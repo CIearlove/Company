@@ -11,7 +11,7 @@ namespace Company.DAL
 {
     public  class BaseDAL<T> where T:class,new()
     {
-        private DbContext dbContext = DbContextFactory.Create();
+        protected DbContext dbContext = DbContextFactory.Create();
         public void Add(T t) {
             dbContext.Set<T>().Add(t);
         }

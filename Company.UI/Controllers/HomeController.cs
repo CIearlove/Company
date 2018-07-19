@@ -19,7 +19,7 @@ namespace Company.UI.Controllers
         {
             return View();
         }
-
+        #region 列表
         [HttpPost]
         public JsonResult GetList(GridPager pager, StaffSearch staffSearch)
         {
@@ -79,5 +79,19 @@ namespace Company.UI.Controllers
 
             return Json(json, JsonRequestBehavior.AllowGet);
         }
+        #endregion
+        #region 批量删除
+        public JsonResult Delete(int[] Ids)
+        {
+            IQueryable<Staff> staffs = StaffService.GetModels(p => Ids.Contains(p.Id));
+            int count = StaffService.DeleteRange(staffs);
+
+            var json = new
+            {
+                deletedNum = count,
+            };
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }
