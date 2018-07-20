@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="LoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffService.cs" />
   </ItemGroup>
@@ -48,6 +49,10 @@
     <ProjectReference Include="..\Company.DALContainer\Company.DALContainer.csproj">
       <Project>{0bc1e873-35d2-4ffd-b926-2425396c3e3c}</Project>
       <Name>Company.DALContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.DAL\Company.DAL.csproj">
+      <Project>{DBCAC4E9-F05B-4AA5-BFF9-34A1C1C01A28}</Project>
+      <Name>Company.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Company.IBLL\Company.IBLL.csproj">
       <Project>{64B52BB6-41B8-4531-9E02-090D6C69AC85}</Project>

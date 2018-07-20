@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
+    <Compile Include="ILoginService.cs" />
     <Compile Include="IStaffService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

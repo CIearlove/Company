@@ -44,6 +44,7 @@ namespace Company.BLLContainer
             var builder = new ContainerBuilder();
             //格式：builder.RegisterType<xxxx>().As<Ixxxx>().InstancePerLifetimeScope();
             builder.RegisterType<StaffService>().As<IStaffService>().InstancePerLifetimeScope();
+            builder.RegisterType<LoginService>().As<ILoginService>().InstancePerLifetimeScope();
             container = builder.Build();
         }
     }

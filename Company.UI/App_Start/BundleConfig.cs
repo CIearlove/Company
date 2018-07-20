@@ -25,7 +25,8 @@ namespace Company.UI
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                        "~/Scripts/Home/home.js"));
 
-
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                       "~/Scripts/Login/login.js"));
 
             //easyui
             bundles.Add(new StyleBundle("~/Content/themes/blue/css").Include("~/Content/themes/default/easyui.css"));
