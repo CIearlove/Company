@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace Company.UI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : DefaultController
     {
         private IStaffService StaffService = Container.Resolve<IStaffService>();
         public ActionResult Index()
@@ -121,5 +121,15 @@ namespace Company.UI.Controllers
             }
         }
         #endregion
+
+        #region 登出
+        public ActionResult LoginOut()
+        {
+            Session["Manager"] = null;
+            return RedirectToAction("Login", "Login");
+        }
+        #endregion
+
+
     }
 }

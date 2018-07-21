@@ -5,50 +5,23 @@
 <head>
     <title>Index</title>
     <meta name="viewport" content="width=device-width" />
-    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/easyui-lang-zh_CN.js")" type="text/javascript"></script>
-    <script src="~/Scripts/Home/dateboxFormat.js"></script>
-    @Scripts.Render("~/bundles/home")
-
-
     @Styles.Render("~/Content/themes/blue/css")
     @Styles.Render("~/Content/themes/icon/css")
-    <style>
-        .textbox {
-            height: 25px;
-            margin: 0;
-            padding: 0 2px;
-            box-sizing: content-box;
-        }
-        .easyui-datebox {
-            height: 25px;
-            margin: 0;
-            padding: 0 2px;
-            box-sizing: content-box;
-        }
-    </style>
+    <link href="~/Content/Css/Home/index.css" rel="stylesheet" />
 </head>
 <body class="easyui-layout">
 
-    <div data-options="region:'north',border:false,split:true" style="height: 60px;">
-        <div class="define-head">
-            <div class="define-logo">
-                <div id="LoginTopLine">System Manage</div>
-                <div id="LoginBotoomLine">MVC4+EF5.0+EasyUI</div>
-            </div>
-        </div>
+    <div data-options="region:'north',border:false,split:true" style="height: 60px;background:#666;">
+        <div class="logo">后台管理</div>
+        <div class="logout">您好，XXX | <a href="/Home/LoginOut">退出</a></div>
     </div>
-    <div data-options="region:'west',split:true,title:'菜单列表'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
+    <div data-options="region:'west',split:true,title:'导航'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
         <div id="RightTree" style=" background-color:#fff;">
             <div class="panel-loading">加载中...</div>
         </div>
     </div>
-    <div data-options="region:'south',border:false" style="height: 20px;">
-        <div class="define-bottom">
-
-
-        </div>
+    <div data-options="region:'south',border:false" style="height: 30px;text-align:center;line-height:30px">
+        &copy;2017-2019 安徽理工大学. Powered by C# and EasyUI.
     </div>
     <div data-options="region:'center',border:false">
         <div id="mainTab" class="easyui-tabs" data-options="fit:true">
@@ -73,7 +46,10 @@
             <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="obj.search()">查询</a>
         </div>
     </div>
-
-    
 </body>
 </html>
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/easyui-lang-zh_CN.js")" type="text/javascript"></script>
+<script src="~/Scripts/Home/dateboxFormat.js"></script>
+@Scripts.Render("~/bundles/home")
