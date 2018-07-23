@@ -7,23 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Company.Model;
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
-public partial class CompanyEntities : DbContext
+namespace Company.Model
 {
-    public CompanyEntities()
-        : base("name=CompanyEntities")
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
+    public partial class CompanyEntities : DbContext
     {
+        public CompanyEntities()
+            : base("name=CompanyEntities")
+        {
+        }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
+        public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<LoginManager> LoginManager { get; set; }
+        public virtual DbSet<Home_Nav> Home_Nav { get; set; }
     }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
-    }
-
-    public virtual DbSet<Staff> Staff { get; set; }
-    public virtual DbSet<LoginManager> LoginManager { get; set; }
 }

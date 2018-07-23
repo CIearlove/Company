@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Home_Nav">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IconCls" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nid" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="LoginManager">
           <Key>
             <PropertyRef Name="Id" />
@@ -25,6 +36,7 @@
           <Property Name="CreateTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CompanyModelStoreContainer">
+          <EntitySet Name="Home_Nav" EntityType="Self.Home_Nav" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginManager" EntityType="Self.LoginManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -45,6 +57,7 @@
         <EntityContainer Name="CompanyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Staff" EntityType="Self.Staff" />
           <EntitySet Name="LoginManager" EntityType="CompanyModel.LoginManager" />
+          <EntitySet Name="Home_Nav" EntityType="CompanyModel.Home_Nav" />
         </EntityContainer>
         <EntityType Name="LoginManager">
           <Key>
@@ -54,6 +67,17 @@
           <Property Name="Manager" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Home_Nav">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IconCls" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nid" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -78,6 +102,18 @@
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Home_Nav">
+            <EntityTypeMapping TypeName="CompanyModel.Home_Nav">
+              <MappingFragment StoreEntitySet="Home_Nav">
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IconCls" ColumnName="IconCls" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

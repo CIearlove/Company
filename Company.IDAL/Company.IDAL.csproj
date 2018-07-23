@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseDAL.cs" />
+    <Compile Include="IHome_NavDAL.cs" />
     <Compile Include="ILoginDAL.cs" />
     <Compile Include="IStaffDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,3 @@
-.icon-login {
-    background: url('icons/login.png') no-repeat center center;
-}
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }
@@ -9,9 +6,6 @@
 }
 .icon-edit{
 	background:url('icons/pencil.png') no-repeat center center;
-}
-.icon-clear{
-	background:url('icons/clear.png') no-repeat center center;
 }
 .icon-remove{
 	background:url('icons/edit_remove.png') no-repeat center center;
@@ -61,16 +55,27 @@
 .icon-filter{
 	background:url('icons/filter.png') no-repeat center center;
 }
-.icon-man{
-	background:url('icons/man.png') no-repeat center center;
+.icon-group{
+	background:url('icons/group.png') no-repeat center center;
 }
-.icon-lock{
-	background:url('icons/lock.png') no-repeat center center;
+.icon-house{
+	background:url('icons/house.png') no-repeat center center;
 }
-.icon-more{
-	background:url('icons/more.png') no-repeat center center;
+.icon-manager{
+	background:url('icons/manager.png') no-repeat center center;
 }
-
+.icon-system{
+	background:url('icons/system.png') no-repeat center center;
+}
+.icon-user{
+	background:url('icons/user.png') no-repeat center center;
+}
+.icon-world{
+	background:url('icons/world.png') no-repeat center center;
+}
+.icon-login{
+	background:url('icons/login.png') no-repeat center center;
+}
 
 .icon-mini-add{
 	background:url('icons/mini_add.png') no-repeat center center;

@@ -64,6 +64,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Company.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Home_Nav.cs">
+      <DependentUpon>Company.tt</DependentUpon>
+    </Compile>
     <Compile Include="LoginManager.cs">
       <DependentUpon>Company.tt</DependentUpon>
     </Compile>

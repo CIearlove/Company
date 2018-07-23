@@ -14,113 +14,12 @@ namespace Company.UI.Controllers
 {
     public class HomeController : DefaultController
     {
-        private IStaffService StaffService = Container.Resolve<IStaffService>();
+        private IHome_NavService Home_NavService = Container.Resolve<IHome_NavService>();
+
         public ActionResult Index()
         {
             return View();
         }
-        #region 列表（初始化+查询）
-        [HttpPost]
-        public JsonResult GetList(GridPager pager, StaffSearch staffSearch)
-        {
-            List<Staff> list = new List<Staff>();
-            DateTime defaultDateTime = new DateTime(1, 1, 1, 0, 0, 0);
-            //staffSearch.name = "";
-            /*
-             * 初始化页面:只有pager接收到浏览器传来的参数，staffSearch中的属性均为默认值。
-             */
-            if (staffSearch.name == null && staffSearch.date_from.Value == defaultDateTime && staffSearch.date_to == defaultDateTime)
-            {
-                pager.totalRows = StaffService.GetModels(c => true).ToList().Count();
-                //初始化页面根据Id排序
-                list = StaffService.GetModelsByPage(pager.rows, pager.page, pager.isAsc, c => c.Id, c => true).ToList();
-            }
-            /*
-             * 查询页面：staffSearch接收到浏览器传来的值，staffSearch中的属性均变为自定义的默认值。
-             */
-            else
-            {
-                //先想一想SQL怎么写，再写Lambda表达式
-                Expression<Func<Staff, bool>> whereLambda = u =>
-               (u.CreateTime >= staffSearch.date_from && u.CreateTime <= staffSearch.date_to)
-               && u.Name.Contains(staffSearch.name);
-                //查询页面根据名称排序
-                Expression<Func<Staff, string>> orderByLambda = c => c.Name;
-
-                pager.totalRows = StaffService.GetModels(whereLambda).ToList().Count();
-                list = StaffService.GetModelsByPage(pager.rows, pager.page, pager.isAsc, orderByLambda, whereLambda).ToList();
-                
-            }
-
-            var json = new
-            {
-                total = pager.totalRows,
-                /*
-                rows = (from r in list
-                        select new Staff()
-                        {
-                            Id = r.Id,
-                            Name = r.Name,
-                            Age = r.Age,
-                            Sex = r.Sex,
-                            CreateTime = r.CreateTime,
-                        }).ToArray()
-                        */
-
-                rows = list.Select(staff => new
-                {
-                    Id = staff.Id,
-                    Name = staff.Name,
-                    Age = staff.Age,
-                    Sex = staff.Sex,
-                    CreateTime = staff.CreateTime
-                }).ToArray()
-            };
-
-            return Json(json, JsonRequestBehavior.AllowGet);
-        }
-        #endregion
-        #region 批量删除
-        public JsonResult Delete(int[] Ids)
-        {
-            IQueryable<Staff> staffs = StaffService.GetModels(p => Ids.Contains(p.Id));
-            int count = StaffService.DeleteRange(staffs);
-
-            var json = new
-            {
-                deletedNum = count,
-            };
-            return Json(json, JsonRequestBehavior.AllowGet);
-        }
-        #endregion
-
-        #region 新增
-        public JsonResult Add(Staff staff)
-        {
-            if (StaffService.Add(staff))
-            {
-                return Json(1, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(0, JsonRequestBehavior.AllowGet);
-            }
-        }
-        #endregion
-
-        #region 修改   
-        public JsonResult Update(Staff staff)
-        {
-            if (StaffService.Update(staff))
-            {
-                return Json(1, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(0, JsonRequestBehavior.AllowGet);
-            }
-        }
-        #endregion
 
         #region 登出
         public ActionResult LoginOut()
@@ -130,6 +29,34 @@ namespace Company.UI.Controllers
         }
         #endregion
 
+        #region 导航栏
+        public JsonResult GetHomeNav(int? id)
+        {
+            int? Id;
+            if (id != null)
+            {
+                Id = id;
+            }
+            else
+            {
+                Id = 0;
+            }
 
+            IQueryable<Home_Nav> home_Navs = Home_NavService.GetModels(p => p.Nid == Id);
+            List<Home_Nav> list = new List<Home_Nav>();
+            list = home_Navs.ToList();
+
+            var json = list.Select(home_nav => new
+            {
+                id = home_nav.Id,
+                text = home_nav.Text,
+                state = home_nav.State,
+                iconCls = home_nav.IconCls,
+                url = home_nav.Url,
+            }).ToArray();
+
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

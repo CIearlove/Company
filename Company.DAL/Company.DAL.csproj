@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
     <Compile Include="DbContextFactory.cs" />
+    <Compile Include="Home_NavDAL.cs" />
     <Compile Include="LoginDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffDAL.cs" />

@@ -15,36 +15,19 @@
         <div class="logo">后台管理</div>
         <div class="logout">您好，XXX | <a href="/Home/LoginOut">退出</a></div>
     </div>
-    <div data-options="region:'west',split:true,title:'导航'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
-        <div id="RightTree" style=" background-color:#fff;">
-            <div class="panel-loading">加载中...</div>
-        </div>
+    <div data-options="region:'west',split:true,title:'导航',iconCls:'icon-world'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
+        <ul id="nav"></ul>
     </div>
     <div data-options="region:'south',border:false" style="height: 30px;text-align:center;line-height:30px">
         &copy;2017-2019 安徽理工大学. Powered by C# and EasyUI.
     </div>
     <div data-options="region:'center',border:false">
-        <div id="mainTab" class="easyui-tabs" data-options="fit:true">
-            <div id="tab1" title="我的桌面" data-options="closable:true" style="overflow: hidden; background:#fff">
-            </div>
-        </div>
+        <div id="tabs">
+            <!--
+        <div id="tab1" title="我的桌面" data-options="closable:true,iconCls:'icon-house'" style="overflow: hidden; background:#fff">
     </div>
-
-    <div id="tabTools" style="padding:5px">
-        <div>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add" onclick="obj.add()">添加</a>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-edit" onclick="obj.edit()">修改</a>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-remove" onclick="obj.remove()">删除</a>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-save" style="display:none;" id="save" onclick="obj.save()">保存</a>
-            <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-redo" style="display:none;" id="redo" onclick="obj.redo()">取消编辑</a>
-        </div>
-
-        <div style="padding:0 0 0 7px;color:#333;">
-            查询账号：<input type="text" name="name" class="textbox">
-            创建时间从：<input type="text" name="date_from" class="easyui-datebox" editable="false">
-            到创建时间：<input type="text" name="date_to" class="easyui-datebox" editable="false">
-            <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="obj.search()">查询</a>
-        </div>
+    -->
+        </div>      
     </div>
 </body>
 </html>

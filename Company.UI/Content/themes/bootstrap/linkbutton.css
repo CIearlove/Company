@@ -1,18 +1,22 @@
 .l-btn {
   text-decoration: none;
   display: inline-block;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   cursor: pointer;
   outline: none;
   text-align: center;
   vertical-align: middle;
-  line-height: normal;
 }
 .l-btn-plain {
-  border-width: 0;
+  border: 0;
   padding: 1px;
+}
+.l-btn-disabled {
+  color: #ccc;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default;
 }
 .l-btn-left {
   display: inline-block;
@@ -26,10 +30,10 @@
   display: inline-block;
   vertical-align: top;
   width: auto;
-  line-height: 28px;
+  line-height: 24px;
   font-size: 12px;
   padding: 0;
-  margin: 0 6px;
+  margin: 0 4px;
 }
 .l-btn-icon {
   display: inline-block;
@@ -58,16 +62,16 @@
   background-position: right center;
 }
 .l-btn-icon-left .l-btn-text {
-  margin: 0 6px 0 26px;
+  margin: 0 4px 0 24px;
 }
 .l-btn-icon-left .l-btn-icon {
-  left: 6px;
+  left: 4px;
 }
 .l-btn-icon-right .l-btn-text {
-  margin: 0 26px 0 6px;
+  margin: 0 24px 0 4px;
 }
 .l-btn-icon-right .l-btn-icon {
-  right: 6px;
+  right: 4px;
 }
 .l-btn-icon-top .l-btn-text {
   margin: 20px 4px 0 4px;
@@ -87,7 +91,7 @@
   margin: 0 0 0 -8px;
 }
 .l-btn-left .l-btn-empty {
-  margin: 0 6px;
+  margin: 0 4px;
   width: 16px;
 }
 .l-btn-plain:hover {
@@ -97,7 +101,7 @@
   outline: #0000FF dotted thin;
 }
 .l-btn-large .l-btn-text {
-  line-height: 44px;
+  line-height: 40px;
 }
 .l-btn-large .l-btn-icon {
   width: 32px;
@@ -128,7 +132,7 @@
   margin: 0 0 0 -16px;
 }
 .l-btn-large .l-btn-left .l-btn-empty {
-  margin: 0 6px;
+  margin: 0 4px;
   width: 32px;
 }
 .l-btn {
@@ -154,13 +158,8 @@
 }
 .l-btn-plain {
   background: transparent;
-  border-width: 0;
+  border: 0;
   filter: none;
-}
-.l-btn-outline {
-  border-width: 1px;
-  border-color: #ddd;
-  padding: 0;
 }
 .l-btn-plain:hover {
   background: #e6e6e6;
@@ -172,8 +171,6 @@
 }
 .l-btn-disabled,
 .l-btn-disabled:hover {
-  opacity: 0.5;
-  cursor: default;
   background: #f5f5f5;
   color: #444;
   background: -webkit-linear-gradient(top,#ffffff 0,#e6e6e6 100%);
@@ -182,10 +179,7 @@
   background: linear-gradient(to bottom,#ffffff 0,#e6e6e6 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#e6e6e6,GradientType=0);
-}
-.l-btn-disabled .l-btn-text,
-.l-btn-disabled .l-btn-icon {
-  filter: alpha(opacity=50);
+  filter: alpha(opacity=50) progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#e6e6e6,GradientType=0);
 }
 .l-btn-plain-disabled,
 .l-btn-plain-disabled:hover {

@@ -22,8 +22,7 @@
   outline: none;
   width: 20px;
   height: 20px;
-  top: 50%;
-  margin-top: -10px;
+  top: -7px;
   margin-left: -10px;
 }
 .slider-tip {
@@ -62,7 +61,7 @@
   float: left;
 }
 .slider-v .slider-handle {
-  left: 50%;
+  left: 3px;
   margin-top: -10px;
 }
 .slider-v .slider-tip {
