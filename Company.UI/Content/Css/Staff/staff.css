@@ -1,0 +1,13 @@
+﻿.textbox {
+    height: 23px;
+    margin: 0;
+    padding: 0 2px;
+    box-sizing: content-box;
+}
+
+.easyui-datebox {
+    height: 23px;
+    margin: 0;
+    padding: 0 2px;
+    box-sizing: content-box;
+}

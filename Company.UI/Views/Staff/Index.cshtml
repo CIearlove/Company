@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
+<link href="~/Content/Css/Staff/staff.css" rel="stylesheet" />
 
 <table id="staff"></table>
 
@@ -10,6 +11,7 @@
         <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add" onclick="obj.add()">添加</a>
         <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-edit" onclick="obj.edit()">修改</a>
         <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-remove" onclick="obj.remove()">删除</a>
+        <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-tip" onclick="obj.export()">导出</a>
         <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-save" style="display:none;" id="save" onclick="obj.save()">保存</a>
         <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-redo" style="display:none;" id="redo" onclick="obj.redo()">取消编辑</a>
     </div>
@@ -19,6 +21,7 @@
         创建时间从：<input type="text" name="date_from" class="easyui-datebox" editable="false">
         到创建时间：<input type="text" name="date_to" class="easyui-datebox" editable="false">
         <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="obj.search()">查询</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" onclick="obj.reload()">清空</a>
     </div>
 </div>
 

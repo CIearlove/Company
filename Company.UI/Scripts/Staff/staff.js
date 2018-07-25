@@ -2,6 +2,25 @@
     obj = {
         editRow: undefined,
 
+        //导出
+        export: function () {
+            $.ajax({
+                type:'POST',
+                url: '/Staff/Export',
+                data: {
+                    name: $.trim($('input[name="name"]').val()),
+                    date_from: $('input[name="date_from"]').val(),
+                    date_to: $('input[name="date_to"]').val(),
+                },
+            });
+        },
+        //清空
+        reload: function () {
+            
+            $('#staff_tabTools').find('input').val('');
+            $('#staff').datagrid('load', {});
+        },
+
         search: function () {
             $('#staff').datagrid('load', {
                 name: $.trim($('input[name="name"]').val()),
@@ -124,6 +143,7 @@
         url: '/Staff/GetList',
         method: 'post',
         fitColumns: true,
+        fixed:true,
         toolbar: "#staff_tabTools",
         columns: [[
             {
@@ -199,8 +219,8 @@
             },
         ]],
         pagination: true,
-        pageSize: 5,
-        pageList: [5, 10, 15],
+        pageSize: 15,
+        pageList: [5, 10,15],
         sortName: 'Id',
         sortOrder: 'asc',
         rownumbers: true,
@@ -213,9 +233,9 @@
 
             //返回被改变的所有行的数组
             //新增行
-            var inserted = $('#staff_tabTools').datagrid('getChanges', 'inserted');
+            var inserted = $('#staff').datagrid('getChanges', 'inserted');
             //更新行
-            var updated = $('#staff_tabTools').datagrid('getChanges', 'updated');
+            var updated = $('#staff').datagrid('getChanges', 'updated');
             var url = '';
             var change = '';
             //新增用户
