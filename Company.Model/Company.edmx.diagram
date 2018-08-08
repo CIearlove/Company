@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="CompanyModel.Staff" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyModel.LoginManager" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="CompanyModel.Home_Nav" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CompanyModel.SysException" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CompanyModel.SysLog" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

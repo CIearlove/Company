@@ -44,6 +44,8 @@
     <Compile Include="IHome_NavService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="IStaffService.cs" />
+    <Compile Include="ISysExceptionService.cs" />
+    <Compile Include="ISysLogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

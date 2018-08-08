@@ -20,6 +20,9 @@ namespace Company.UI.Controllers
     public class StaffController : DefaultController
     {
         private IStaffService StaffService = Container.Resolve<IStaffService>();
+
+        //private ISysLogService SysLogService = Container.Resolve<ISysLogService>();
+
         // GET: Staff
         public ActionResult Index()
         {
@@ -107,10 +110,12 @@ namespace Company.UI.Controllers
         {
             if (StaffService.Add(staff))
             {
+                LogHandler.WriteServiceLog("虚拟用户", "Id:" + staff.Id + ",Name:" + staff.Name, "成功", "创建", "样例程序");
                 return Json(1, JsonRequestBehavior.AllowGet);
             }
             else
             {
+                LogHandler.WriteServiceLog("虚拟用户", "Id:" + staff.Id + ",Name:" + staff.Name, "失败", "创建", "样例程序");
                 return Json(0, JsonRequestBehavior.AllowGet);
             }
         }

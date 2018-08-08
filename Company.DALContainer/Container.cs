@@ -49,6 +49,8 @@ namespace Company.DALContainer
             builder.RegisterType<StaffDAL>().As<IStaffDAL>().InstancePerLifetimeScope();
             builder.RegisterType<LoginDAL>().As<ILoginDAL>().InstancePerLifetimeScope();
             builder.RegisterType<Home_NavDAL>().As<IHome_NavDAL>().InstancePerLifetimeScope();
+            builder.RegisterType<SysLogDAL>().As<ISysLogDAL>().InstancePerLifetimeScope();
+            builder.RegisterType<SysExceptionDAL>().As<ISysExceptionDAL>().InstancePerLifetimeScope();
             container = builder.Build();
         }
     }

@@ -173,6 +173,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\SysExceptionController.cs" />
+    <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +187,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\Login\login.css" />
     <Content Include="Content\Css\Staff\staff.css" />
+    <Content Include="Content\Css\Sys\SysException\sysException.css" />
+    <Content Include="Content\Css\Sys\SysLog\syslog.css" />
     <Content Include="Content\themes\black\accordion.css" />
     <Content Include="Content\themes\black\calendar.css" />
     <Content Include="Content\themes\black\combo.css" />
@@ -390,6 +394,7 @@
     <Content Include="Content\themes\icons\large_picture.png" />
     <Content Include="Content\themes\icons\large_shapes.png" />
     <Content Include="Content\themes\icons\large_smartart.png" />
+    <Content Include="Content\themes\icons\log.png" />
     <Content Include="Content\themes\icons\login.png" />
     <Content Include="Content\themes\icons\manager.png" />
     <Content Include="Content\themes\icons\mini_add.png" />
@@ -464,8 +469,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\themes\icons\Thumbs.db" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Common\dateboxFormat.js" />
     <Content Include="Scripts\easyui-lang-zh_CN.js" />
     <Content Include="Scripts\Home\dateboxFormat.js" />
     <Content Include="Scripts\Home\home.js" />
@@ -483,6 +488,8 @@
     <Content Include="Scripts\Login\login.js" />
     <Content Include="Content\Css\Home\index.css" />
     <Content Include="Scripts\Staff\staff.js" />
+    <Content Include="Scripts\Sys\SysException\sysException.js" />
+    <Content Include="Scripts\Sys\SysLog\syslog.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -495,6 +502,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\SysLog\Index.cshtml" />
+    <Content Include="Views\SysException\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

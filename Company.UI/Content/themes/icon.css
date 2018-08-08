@@ -7,6 +7,9 @@
 .icon-edit{
 	background:url('icons/pencil.png') no-repeat center center;
 }
+.icon-log {
+    background: url('icons/log.png') no-repeat center center;
+}
 .icon-remove{
 	background:url('icons/edit_remove.png') no-repeat center center;
 }

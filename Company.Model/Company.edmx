@@ -35,10 +35,37 @@
           <Property Name="Sex" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="SysException">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Source" Type="varchar" MaxLength="500" />
+          <Property Name="StackTrace" Type="text" />
+          <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+          <Property Name="Data" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Operator" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Result" Type="varchar" MaxLength="20" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Module" Type="varchar" MaxLength="20" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
         <EntityContainer Name="CompanyModelStoreContainer">
           <EntitySet Name="Home_Nav" EntityType="Self.Home_Nav" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginManager" EntityType="Self.LoginManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -58,6 +85,8 @@
           <EntitySet Name="Staff" EntityType="Self.Staff" />
           <EntitySet Name="LoginManager" EntityType="CompanyModel.LoginManager" />
           <EntitySet Name="Home_Nav" EntityType="CompanyModel.Home_Nav" />
+          <EntitySet Name="SysException" EntityType="CompanyModel.SysException" />
+          <EntitySet Name="SysLog" EntityType="CompanyModel.SysLog" />
         </EntityContainer>
         <EntityType Name="LoginManager">
           <Key>
@@ -78,6 +107,31 @@
           <Property Name="IconCls" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Url" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysException">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -114,6 +168,33 @@
                 <ScalarProperty Name="IconCls" ColumnName="IconCls" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysException">
+            <EntityTypeMapping TypeName="CompanyModel.SysException">
+              <MappingFragment StoreEntitySet="SysException">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysLog">
+            <EntityTypeMapping TypeName="CompanyModel.SysLog">
+              <MappingFragment StoreEntitySet="SysLog">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

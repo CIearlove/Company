@@ -18,6 +18,7 @@ namespace Company.UI.Controllers
 
         public ActionResult Index()
         {
+            ViewData["User"] = Session["Manager"];
             return View();
         }
 

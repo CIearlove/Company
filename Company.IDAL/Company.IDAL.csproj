@@ -44,6 +44,8 @@
     <Compile Include="IHome_NavDAL.cs" />
     <Compile Include="ILoginDAL.cs" />
     <Compile Include="IStaffDAL.cs" />
+    <Compile Include="ISysExceptionDAL.cs" />
+    <Compile Include="ISysLogDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>SysLog</h2>
+
+<link href="~/Content/Css/Sys/SysLog/syslog.css" rel="stylesheet" />
+
+<table id="syslog"></table>
+
+<div id="box" class="easyui-menu" style="width:120px;">
+    
+    <div id="detail" onclick="obj.detail()" data-options="iconCls:'icon-tip'">详细</div>
+  
+</div>
+
+<form id="syslog_detail" style="margin:0;padding:5px 0 0 25px;color:#333;">
+    <div>
+        <input type="hidden" name="id" class="textbox" style="width:200px;">
+    </div>
+    <div class="block">
+        <label>操作人：</label>
+        <input type="text" name="operator_detail" disabled="true" class="textbox" style="width:200px;">
+    </div>
+    <div class="block">
+        <label>信息：</label>
+        <input type="text" name="message_detail" disabled="true" class="textbox" style="width:200px;height:50px">
+    </div>
+    <div class="block">
+        <label>结果：</label>
+        <input type="text" name="result_detail" disabled="true" class="textbox" style="width:200px;">
+    </div>
+    <div class="block">
+        <label>类型：</label>
+        <input type="text" name="type_detail" disabled="true" class="textbox" style="width:200px;">
+    </div>
+    <div class="block">
+        <label>模块：</label>
+        <input type="text" name="module_detail" disabled="true" class="textbox" style="width:200px;">
+    </div>
+    <div class="block">
+        <label>添加时间：</label>
+        <input id="createTime_detail" class="textbox" name="createTime_detail" disabled="true" style="width:200px;">
+    </div>
+</form>
+
+<script src="~/Scripts/Sys/SysLog/syslog.js"></script>
+<script src="~/Scripts/Common/dateboxFormat.js"></script>

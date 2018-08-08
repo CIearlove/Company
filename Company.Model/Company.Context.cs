@@ -28,5 +28,7 @@ namespace Company.Model
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<LoginManager> LoginManager { get; set; }
         public virtual DbSet<Home_Nav> Home_Nav { get; set; }
+        public virtual DbSet<SysException> SysException { get; set; }
+        public virtual DbSet<SysLog> SysLog { get; set; }
     }
 }

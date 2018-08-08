@@ -74,6 +74,12 @@
     <Compile Include="Staff.cs">
       <DependentUpon>Company.tt</DependentUpon>
     </Compile>
+    <Compile Include="SysException.cs">
+      <DependentUpon>Company.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysLog.cs">
+      <DependentUpon>Company.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

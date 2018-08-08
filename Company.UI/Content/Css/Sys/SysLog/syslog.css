@@ -1,0 +1,11 @@
+﻿.block {
+    width: 400px;
+    display: block;
+    margin: 5px 0;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}

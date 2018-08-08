@@ -45,6 +45,8 @@
     <Compile Include="LoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffService.cs" />
+    <Compile Include="SysExceptionService.cs" />
+    <Compile Include="SysLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Company.DALContainer\Company.DALContainer.csproj">
