@@ -3,10 +3,10 @@ $(function () {
    
     $('#syslog_detail').hide();
 
-    obj = {
+    syslogButton = {
         detail: function () {
             //debugger
-            var rows = $('#syslog').datagrid('getSelections');
+            var rows = $('#syslog_table').datagrid('getSelections');
             console.log(rows);
             if (rows.length > 1) {
                 $.messager.alert(' 警告操作 ', '只能展示一条记录！', 'warning');
@@ -52,7 +52,7 @@ $(function () {
         },
     };
 
-    $('#syslog').datagrid({
+    $('#syslog_table').datagrid({
         title: '系统日志',
         iconCls: 'icon-search',
         url: '/SysLog/GetList',
@@ -119,7 +119,7 @@ $(function () {
         },
         //在鼠标右击一行记录的时候触发。
         onRowContextMenu: function (e, rowIndex, rowData) {
-            $('#box').menu('show', {
+            $('#syslog_menu').menu('show', {
                 left: e.pageX,
                 top: e.pageY
             });

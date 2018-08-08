@@ -1,13 +1,13 @@
 ﻿$(function () {
 
     //标签
-    $('#tabs').tabs({
+    $('#home_tabs').tabs({
         fit: true,
         border: false,
     });
 
     //导航栏
-    $('#nav').tree({
+    $('#home_nav').tree({
         url: '/Home/GetHomeNav',
         lines: true,
         onLoadSuccess: function (node, data) {
@@ -15,17 +15,17 @@
             if (data) {
                 $(data).each(function (index, value) {
                     if (this.state == 'closed') {
-                        $('#nav').tree('expandAll');
+                        $('#home_nav').tree('expandAll');
                     }
                 });
             }
         },
         onClick: function (node) {
             if (node.url) {
-                if ($('#tabs').tabs('exists', node.text)) {
-                    $('#tabs').tabs('select', node.text);
+                if ($('#home_tabs').tabs('exists', node.text)) {
+                    $('#home_tabs').tabs('select', node.text);
                 } else {
-                    $('#tabs').tabs('add', {
+                    $('#home_tabs').tabs('add', {
                         title: node.text,
                         iconCls: node.iconCls,
                         closable: true,

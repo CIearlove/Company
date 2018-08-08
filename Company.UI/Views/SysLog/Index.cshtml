@@ -7,11 +7,11 @@
 
 <link href="~/Content/Css/Sys/SysLog/syslog.css" rel="stylesheet" />
 
-<table id="syslog"></table>
+<table id="syslog_table"></table>
 
-<div id="box" class="easyui-menu" style="width:120px;">
+<div id="syslog_menu" class="easyui-menu" style="width:120px;">
     
-    <div id="detail" onclick="obj.detail()" data-options="iconCls:'icon-tip'">详细</div>
+    <div onclick="syslogButton.detail()" data-options="iconCls:'icon-tip'">详细</div>
   
 </div>
 
@@ -41,7 +41,7 @@
     </div>
     <div class="block">
         <label>添加时间：</label>
-        <input id="createTime_detail" class="textbox" name="createTime_detail" disabled="true" style="width:200px;">
+        <input class="textbox" name="createTime_detail" disabled="true" style="width:200px;">
     </div>
 </form>
 

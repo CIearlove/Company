@@ -198,7 +198,7 @@ namespace Company.UI.Controllers
             mysheetXSSF.DefaultRowHeight = 50 * 20;
 
             //6.保存
-            FileStream fileXSSF = new FileStream(@"F:\Work\Codes\JITC#_Exercises\TestExport\myXSSFworkbook.xlsx", FileMode.Create);
+            FileStream fileXSSF = new FileStream(@"D:\Work\Codes\JITC#_Exercises\TestExport\myXSSFworkbook.xlsx", FileMode.Create);
             myXSSFworkbook.Write(fileXSSF);
             fileXSSF.Close();
         }

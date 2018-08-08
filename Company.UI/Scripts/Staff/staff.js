@@ -1,5 +1,5 @@
 ﻿$(function () {
-    obj = {
+    staffButton = {
         editRow: undefined,
 
         //导出
@@ -18,11 +18,11 @@
         reload: function () {
             
             $('#staff_tabTools').find('input').val('');
-            $('#staff').datagrid('load', {});
+            $('#staff_table').datagrid('load', {});
         },
 
         search: function () {
-            $('#staff').datagrid('load', {
+            $('#staff_table').datagrid('load', {
                 name: $.trim($('input[name="name"]').val()),
                 date_from: $('input[name="date_from"]').val(),
                 date_to: $('input[name="date_to"]').val(),
@@ -31,17 +31,17 @@
         //添加一行
         add: function () {
             //出现两个按钮
-            $('#save,#redo').show();
+            $('#staff_tabTools_save,#staff_tabTools_redo').show();
 
             if (this.editRow == undefined) {
-                $('#staff').datagrid('insertRow', {
+                $('#staff_table').datagrid('insertRow', {
                     index: 0,
                     row: {
 
                     }
                 });
                 //将第一行设置为可编辑状态
-                $('#staff').datagrid('beginEdit', 0);
+                $('#staff_table').datagrid('beginEdit', 0);
                 //有正在编辑的行
                 this.editRow = 0;
             }
@@ -49,35 +49,35 @@
 
         save: function () {
             //结束某一行的编辑状态
-            $('#staff').datagrid('endEdit', this.editRow);
+            $('#staff_table').datagrid('endEdit', this.editRow);
         },
         redo: function () {
             //回滚
-            $('#staff').datagrid('rejectChanges');
+            $('#staff_table').datagrid('rejectChanges');
             //取消编辑时应当隐藏这两个按钮
-            $('#save,#redo').hide();
+            $('#staff_tabTools_save,#staff_tabTools_redo').hide();
             //没有正在编辑的行
             this.editRow = undefined;
         },
 
         edit: function () {
             //返回所有被选中的行
-            var rows = $('#staff').datagrid('getSelections');
+            var rows = $('#staff_table').datagrid('getSelections');
             //console.log(rows);
             //只能修改一行
             if (rows.length == 1) {
                 if (this.editRow == undefined) {
                     //获取到当前行的索引
-                    var index = $('#staff').datagrid('getRowIndex', rows[0]);
-                    $('#save,#redo').show();
-                    $('#staff').datagrid('beginEdit', index);
+                    var index = $('#staff_table').datagrid('getRowIndex', rows[0]);
+                    $('#staff_tabTools_save,#staff_tabTools_redo').show();
+                    $('#staff_table').datagrid('beginEdit', index);
                     this.editRow = index;
                     //取消指定选择的行
-                    $('#staff').datagrid('unselectRow', index);
+                    $('#staff_table').datagrid('unselectRow', index);
                 }
                 else {
                     //结束某一行的编辑状态
-                    $('#staff').datagrid('endEdit', this.editRow);
+                    $('#staff_table').datagrid('endEdit', this.editRow);
                 }
             } else {
                 $.messager.alert('警告', '只能修改一行!', 'warning');
@@ -87,7 +87,7 @@
 
         remove: function () {
             //返回所有被选中的行
-            var rows = $('#staff').datagrid('getSelections');
+            var rows = $('#staff_table').datagrid('getSelections');
             if (rows.length > 0) {
                 $.messager.confirm('确定操作', '您真的要删除所选的记录么？', function (flag) {
                     //确认删除flag=true;
@@ -106,16 +106,16 @@
                             },
                             beforeSend: function () {
                                 //显示载入状态
-                                $('#staff').datagrid('loading');
+                                $('#staff_table').datagrid('loading');
                             },
                             success: function (data) {
                                 if (data) {
                                     //隐藏载入状态
-                                    $('#staff').datagrid('loaded');
+                                    $('#staff_table').datagrid('loaded');
                                     //加载和显示第一页的所有行，即刷新当前页。
-                                    $('#staff').datagrid('load');
+                                    $('#staff_table').datagrid('load');
                                     //取消所有当前页中的所有行。
-                                    $('#staff').datagrid('unselectAll');
+                                    $('#staff_table').datagrid('unselectAll');
                                     $.messager.show({
                                         title: '提示',
                                         msg: data.deletedNum + '条记录被删除！',
@@ -128,7 +128,7 @@
                     }
                     else {
                         //回滚
-                        $('#staff').datagrid('rejectChanges');
+                        $('#staff_table').datagrid('rejectChanges');
                     }
                 });
             } else {
@@ -137,7 +137,7 @@
         }
     };
 
-    $('#staff').datagrid({
+    $('#staff_table').datagrid({
         title: '员工列表',
         iconCls: 'icon-search',
         url: '/Staff/GetList',
@@ -229,13 +229,13 @@
             //编辑完成时应当隐藏这两个按钮
             $('#save,#redo').hide();
             //没有正在编辑的行
-            obj.editRow = undefined;
+            staffButton.editRow = undefined;
 
             //返回被改变的所有行的数组
             //新增行
-            var inserted = $('#staff').datagrid('getChanges', 'inserted');
+            var inserted = $('#staff_table').datagrid('getChanges', 'inserted');
             //更新行
-            var updated = $('#staff').datagrid('getChanges', 'updated');
+            var updated = $('#staff_table').datagrid('getChanges', 'updated');
             var url = '';
             var change = '';
             //新增用户
@@ -265,23 +265,23 @@
                 },
                 beforeSend: function () {
                     //显示载入状态
-                    $('#staff').datagrid('loading');
+                    $('#staff_table').datagrid('loading');
                 },
                 //服务器端返回的数据在data中
                 success: function (data) {
                     if (data) {
                         //隐藏载入状态
-                        $('#staff').datagrid('loaded');
+                        $('#staff_table').datagrid('loaded');
                         //加载和显示第一页的所有行，即刷新当前页。
-                        $('#staff').datagrid('load');
+                        $('#staff_table').datagrid('load');
                         //取消所有当前页中的所有行。
-                        $('#staff').datagrid('unselectAll');
+                        $('#staff_table').datagrid('unselectAll');
                         //提示框
                         $.messager.show({
                             title: '提示',
                             msg: data + info,
                         });
-                        obj.editRow = undefined;
+                        staffButton.editRow = undefined;
                     } else {
 
                     };
