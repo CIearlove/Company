@@ -2,9 +2,23 @@
 @{
     ViewBag.Title = "Index";
 }
-<link href="~/Content/Css/Sys/SysException/sysException.css" rel="stylesheet" />
 <h2>SysException</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/themes/blue/css")
+    @Styles.Render("~/Content/themes/icon/css")
+    <link href="~/Content/Css/Sys/SysException/sysException.css" rel="stylesheet" />
+</head>
 
-<table id="sysException"></table>
+<body>
+    <table id="sysException_table"></table>
+</body>
 
+</html>
+
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/easyui-lang-zh_CN.js")" type="text/javascript"></script>
+<script src="~/Scripts/Common/dateboxFormat.js"></script>
 <script src="~/Scripts/Sys/SysException/sysException.js"></script>

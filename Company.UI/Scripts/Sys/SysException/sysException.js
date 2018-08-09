@@ -1,4 +1,4 @@
-﻿$('#sysException').datagrid({
+﻿$('#sysException_table').datagrid({
     title: '系统异常',
     iconCls: 'icon-search',
     url: '/SysException/GetList',

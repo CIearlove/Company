@@ -22,19 +22,42 @@
         },
         onClick: function (node) {
             if (node.url) {
+                //tab已存在
                 if ($('#home_tabs').tabs('exists', node.text)) {
+                    //选中tab
                     $('#home_tabs').tabs('select', node.text);
                 } else {
+                    //进度条信息
+                    $.messager.progress({
+                        text: '页面正在加载中......',
+                        interval: 20
+                    });
+                    //1s之后关闭进度条
+                    window.setTimeout(function () {
+                        try {
+                            $.messager.progress('close');
+                        }
+                        catch (e) {
+
+                        }
+                    }, 1000);
+                    //生成tab
                     $('#home_tabs').tabs('add', {
                         title: node.text,
                         iconCls: node.iconCls,
                         closable: true,
-                        href: node.url,
+                        content: newIframe(node.url),
                     });
                 }
             }
         }
     });
 });
+
+//页面的frame
+function newIframe(url) {
+    var ifrStr = "<iframe src='" + url + "' frameborder=0 style='width:100%;height:100%;border:0'></iframe>";
+    return ifrStr;
+}
 
 

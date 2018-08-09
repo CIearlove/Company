@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultHelper.cs" />
     <Compile Include="Staff\StaffSearch.cs" />
+    <Compile Include="ValidationErrorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Company.BLL\Company.BLL.csproj">

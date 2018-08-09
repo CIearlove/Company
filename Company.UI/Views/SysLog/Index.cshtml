@@ -2,48 +2,57 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>SysLog</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/themes/blue/css")
+    @Styles.Render("~/Content/themes/icon/css")
+    <link href="~/Content/Css/Sys/SysLog/syslog.css" rel="stylesheet" />
+</head>
+<body>
+    <table id="syslog_table"></table>
 
-<link href="~/Content/Css/Sys/SysLog/syslog.css" rel="stylesheet" />
+    <div id="syslog_menu" class="easyui-menu" style="width:120px;">
 
-<table id="syslog_table"></table>
+        <div onclick="syslogButton.detail()" data-options="iconCls:'icon-tip'">详细</div>
 
-<div id="syslog_menu" class="easyui-menu" style="width:120px;">
-    
-    <div onclick="syslogButton.detail()" data-options="iconCls:'icon-tip'">详细</div>
-  
-</div>
+    </div>
 
-<form id="syslog_detail" style="margin:0;padding:5px 0 0 25px;color:#333;">
-    <div>
-        <input type="hidden" name="id" class="textbox" style="width:200px;">
-    </div>
-    <div class="block">
-        <label>操作人：</label>
-        <input type="text" name="operator_detail" disabled="true" class="textbox" style="width:200px;">
-    </div>
-    <div class="block">
-        <label>信息：</label>
-        <input type="text" name="message_detail" disabled="true" class="textbox" style="width:200px;height:50px">
-    </div>
-    <div class="block">
-        <label>结果：</label>
-        <input type="text" name="result_detail" disabled="true" class="textbox" style="width:200px;">
-    </div>
-    <div class="block">
-        <label>类型：</label>
-        <input type="text" name="type_detail" disabled="true" class="textbox" style="width:200px;">
-    </div>
-    <div class="block">
-        <label>模块：</label>
-        <input type="text" name="module_detail" disabled="true" class="textbox" style="width:200px;">
-    </div>
-    <div class="block">
-        <label>添加时间：</label>
-        <input class="textbox" name="createTime_detail" disabled="true" style="width:200px;">
-    </div>
-</form>
+    <form id="syslog_detail" style="margin:0;padding:5px 0 0 25px;color:#333;">
+        <div>
+            <input type="hidden" name="id" class="textbox" style="width:200px;">
+        </div>
+        <div class="block">
+            <label>操作人：</label>
+            <input type="text" name="operator_detail" disabled="true" class="textbox" style="width:200px;">
+        </div>
+        <div class="block">
+            <label>信息：</label>
+            <input type="text" name="message_detail" disabled="true" class="textbox" style="width:200px;height:50px">
+        </div>
+        <div class="block">
+            <label>结果：</label>
+            <input type="text" name="result_detail" disabled="true" class="textbox" style="width:200px;">
+        </div>
+        <div class="block">
+            <label>类型：</label>
+            <input type="text" name="type_detail" disabled="true" class="textbox" style="width:200px;">
+        </div>
+        <div class="block">
+            <label>模块：</label>
+            <input type="text" name="module_detail" disabled="true" class="textbox" style="width:200px;">
+        </div>
+        <div class="block">
+            <label>添加时间：</label>
+            <input class="textbox" name="createTime_detail" disabled="true" style="width:200px;">
+        </div>
+    </form>
+</body>
 
-<script src="~/Scripts/Sys/SysLog/syslog.js"></script>
+</html>
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/easyui-lang-zh_CN.js")" type="text/javascript"></script>
 <script src="~/Scripts/Common/dateboxFormat.js"></script>
+<script src="~/Scripts/Sys/SysLog/syslog.js"></script>
