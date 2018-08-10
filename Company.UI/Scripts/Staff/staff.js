@@ -219,7 +219,7 @@
             },
         ]],
         pagination: true,
-        pageSize: 10,
+        pageSize: 15,
         pageList: [5, 10,15],
         sortName: 'Id',
         sortOrder: 'asc',

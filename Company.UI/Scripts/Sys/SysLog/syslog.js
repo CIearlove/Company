@@ -107,7 +107,7 @@ $(function () {
             },
         ]],
         pagination: true,
-        pageSize: 5,
+        pageSize: 15,
         pageList: [5, 10, 15],
         sortName: 'Id',
         sortOrder: 'asc',

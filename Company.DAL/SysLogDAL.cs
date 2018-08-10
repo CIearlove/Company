@@ -10,6 +10,9 @@ namespace Company.DAL
 {
     public class SysLogDAL : BaseDAL<SysLog>, ISysLogDAL
     {
-     
+        public void Dispose()
+        {
+           
+        }
     }
 }

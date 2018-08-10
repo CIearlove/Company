@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Company.IDAL
 {
-    public interface ISysExceptionDAL:IBaseDAL<SysException>
+    public interface ISysExceptionDAL:IBaseDAL<SysException>,IDisposable
     {
     }
 }

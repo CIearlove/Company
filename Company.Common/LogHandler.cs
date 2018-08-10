@@ -10,13 +10,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+//using Company.BLLContainer;
 
 namespace Company.Common
 {
     public static class LogHandler
     {
+        //private static ISysLogDAL logDAL = new SysLogDAL();
+        private static ISysLogDAL logDAL = Container.Resolve<ISysLogDAL>();
         //public static ISysLogService SysLogService { get; set; }
-        //private ISysLogService SysLogService = Container.Resolve<ISysLogService>();
+        //private static ISysLogService logBLL = Container.Resolve<ISysLogService>();
         /// <summary>
         /// 写入日志
         /// </summary>
@@ -37,10 +40,12 @@ namespace Company.Common
             entity.Module = module;
             entity.CreateTime = ResultHelper.NowTime;
 
-            SysLogService log = new SysLogService();
-            log.Add(entity);
-           
-            
+
+            //logBLL.Add(entity);
+            logDAL.Add(entity);
+            logDAL.SaveChanges();
+
+
         }
     }
 }

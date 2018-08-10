@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace Company.DAL
 {
-    public class SysExceptionDAL:BaseDAL<SysException>,ISysExceptionDAL
+    public class SysExceptionDAL : BaseDAL<SysException>, ISysExceptionDAL
     {
+        public void Dispose()
+        {
+            
+        }
     }
 }

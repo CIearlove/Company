@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Company.IDAL
 {
-    public interface ISysLogDAL:IBaseDAL<SysLog>
+    public interface ISysLogDAL:IBaseDAL<SysLog>,IDisposable
     {
     }
 }

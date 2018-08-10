@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionHander.cs" />
     <Compile Include="GridPager.cs" />
     <Compile Include="LogHandler.cs" />
     <Compile Include="LoginManager\LoginInfo.cs" />
@@ -49,6 +51,10 @@
     <Compile Include="ValidationErrorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Company.BLLContainer\Company.BLLContainer.csproj">
+      <Project>{a28f9f89-6998-4f3d-bfe1-151187a1cfaa}</Project>
+      <Name>Company.BLLContainer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Company.BLL\Company.BLL.csproj">
       <Project>{BCAD6079-BF1B-4A72-9409-35768B413501}</Project>
       <Name>Company.BLL</Name>
