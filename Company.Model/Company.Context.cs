@@ -30,5 +30,6 @@ namespace Company.Model
         public virtual DbSet<Home_Nav> Home_Nav { get; set; }
         public virtual DbSet<SysException> SysException { get; set; }
         public virtual DbSet<SysLog> SysLog { get; set; }
+        public virtual DbSet<SysModule> SysModule { get; set; }
     }
 }

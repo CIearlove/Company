@@ -80,6 +80,9 @@
     <Compile Include="SysLog.cs">
       <DependentUpon>Company.tt</DependentUpon>
     </Compile>
+    <Compile Include="SysModule.cs">
+      <DependentUpon>Company.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

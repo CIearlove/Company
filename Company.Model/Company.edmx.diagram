@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="CompanyModel.Home_Nav" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="CompanyModel.SysException" Width="1.5" PointX="3.375" PointY="3.75" />
         <EntityTypeShape EntityType="CompanyModel.SysLog" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CompanyModel.SysModule" Width="1.5" PointX="5.375" PointY="4.75" />
+        <AssociationConnector Association="CompanyModel.FK_SysModule_SysModule" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

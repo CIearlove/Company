@@ -31,28 +31,28 @@ namespace Company.UI.Controllers
         #endregion
 
         #region 导航栏
-        public JsonResult GetHomeNav(int? id)
+        public JsonResult GetHomeNav(string id)
         {
-            int? Id;
+            string Id;
             if (id != null)
             {
                 Id = id;
             }
             else
             {
-                Id = 0;
+                Id = "0";
             }
 
-            IQueryable<Home_Nav> home_Navs = Home_NavService.GetModels(p => p.Nid == Id);
-            List<Home_Nav> list = new List<Home_Nav>();
+            IQueryable<SysModule> home_Navs = Home_NavService.GetModels(p => p.ParentId == Id && p.Id != "0");
+            List<SysModule> list = new List<SysModule>();
             list = home_Navs.ToList();
 
             var json = list.Select(home_nav => new
             {
                 id = home_nav.Id,
-                text = home_nav.Text,
-                state = home_nav.State,
-                iconCls = home_nav.IconCls,
+                text = home_nav.Name,
+                state = (home_nav.IsLast == false) ? "closed" : "open",
+                iconCls = home_nav.Iconic,
                 url = home_nav.Url,
             }).ToArray();
 

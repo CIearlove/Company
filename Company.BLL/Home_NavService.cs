@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Company.BLL
 {
-    public class Home_NavService : BaseService<Home_Nav>, IHome_NavService
+    public class Home_NavService : BaseService<SysModule>, IHome_NavService
     {
         private IHome_NavDAL Home_NavDAL = Container.Resolve<IHome_NavDAL>();
         public override void SetDal()

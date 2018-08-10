@@ -11,6 +11,7 @@
         url: '/Home/GetHomeNav',
         lines: true,
         onLoadSuccess: function (node, data) {
+            console.log(data);
             //展开所有子树
             if (data) {
                 $(data).each(function (index, value) {

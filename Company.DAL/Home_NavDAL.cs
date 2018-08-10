@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Company.DAL
 {
-    public class Home_NavDAL:BaseDAL<Home_Nav>, IHome_NavDAL
+    public class Home_NavDAL:BaseDAL<SysModule>, IHome_NavDAL
     {
     }
 }

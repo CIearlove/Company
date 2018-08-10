@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Company.IBLL
 {
-    public interface IHome_NavService:IBaseService<Home_Nav>
+    public interface IHome_NavService:IBaseService<SysModule>
     {
     }
 }
