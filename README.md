@@ -3,6 +3,7 @@ Asp.Net-MVC-EF-Autofac三层架构Demo
 
 参考网址：
 https://www.cnblogs.com/zzqvq/p/5816091.html
+https://www.cnblogs.com/ymnets/p/3424309.html
 
 2018/7/20更新日志:
 （1）利用后台跳转，将项目的初始页变为登录页;
